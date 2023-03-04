@@ -5,10 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new
-    @user["username"] = params["users"]["username"]
-    @user["email"] = params["users"]["email"]
-    @user["password"] = params["users"]["password"]
+    @user["username"] = params["user"]["username"]
+    @user["email"] = params["user"]["email"]
+    @user["password"] = params["user"]["password"]
     @user.save
-    redirect_to "/"
+    redirect_to "/users/#{@user["id"]}"
   end
 end
